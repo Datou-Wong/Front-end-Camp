@@ -75,22 +75,36 @@ a{
 a:hover{
 	color: pink;
 }
+.img50{
+	width: 50%;
+}
+@media(max-width:768px){
+	h2{
+		font-size: 48px;
+	}
+	.img50{
+		width: 100%;
+	}
+}
 /* 最上面LINK */
 body{
 	max-width: 1920px;
 	margin: 0 auto;
+	padding: 0 12px;
 }
 header{
 	display: flex;
 	justify-content: center;
 	padding: 24px 0;
 }
+header a + a{
+	margin-left: 30px;
+}
 header a{
 	text-decoration: none;
 	font-size: 28px;
 	color: #000;
 	font-weight: bold;
-	margin-right: 40px;
 }
 /* 大照片自我介紹 */
 .resume {
@@ -135,6 +149,7 @@ header a{
 	main{
 		flex-direction: column;
 		align-items: center;
+		width: 100%;
 	}
 	.resume{
 		flex-direction: column;
@@ -147,37 +162,6 @@ header a{
 		width: 100%;
 		padding: 24px;
 		align-items: center;
-		box-sizing: border-box;
-	}
-	.resume-name h2{
-		font-size: 52px;
-	}
-	.resume-name p{
-		font-size: 28px;
-	}
-	.resume-p{
-		font-size: 24px;
-		width: 100%;
-		margin: 0 auto;
-	}
-}
-@media(max-width:375px){
-	main{
-		flex-direction: column;
-		align-items: center;
-	}
-	.resume{
-		flex-direction: column;
-		align-items: center;
-	}
-	.resume img{
-		width: 100%;
-	}
-	.resume-name{
-		width: 100%;
-		padding: 24px;
-		align-items: center;
-		box-sizing: border-box;
 	}
 	.resume-name h2{
 		font-size: 52px;
@@ -224,7 +208,6 @@ section ul li{
 .section-p h3{
 	font-size: 28px;
 	font-weight: bold;
-
 }
 .section-p p{
 	font-size: 16px;
@@ -237,23 +220,54 @@ section ul li img{
 	font-weight: bold;
 	text-align: right;
 }
+@media(max-width:768px){
+	section{
+		margin: 0 auto;
+		width: 100%;
+		padding: 64px 12px;
+
+	}
+	.section-p{
+		width: 100%;
+		margin: 0 auto;
+		padding: 24px;
+		position: static;
+		box-sizing: border-box;
+	}
+	
+	section ul li{
+		flex-direction: column;
+		align-items: flex-start;
+		box-sizing: border-box;
+		}
+	.change{
+		flex-direction: column; 
+	}
+	.change .section-p{
+		margin: 0 auto;
+		padding: 24px;
+	}
+}
 /* 部落格精選 */
 .blog{
 	width: 70%;
 	margin: 0 auto;
 	margin-bottom: 100px;
 }
+.blog-container{
+	position: relative;
+}	
 .blog ul{
 	display: flex;
 	justify-content: space-between;
-}
-.blog ul li{
-	width: 32%;
+	gap: 10px;
+	width: 100%;
+	position: relative;
 }
 .blog ul li img{
 	width: 100%;
 	height: 200px;
-}
+	}
 .date{
 	font-size: 16px;
 	padding: 10px 0;
@@ -268,7 +282,22 @@ section ul li img{
 	font-weight: bold;
 }
 .arrow{
-	display: inline;
+	width: 44px;
+	height: 44px;
+}
+.arrow.left{
+	margin-left: -50px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+}
+.arrow.right{
+	margin-left: 50px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 100%;
 }
 .blog-hashtag{
 	font-size: 24px;
@@ -287,6 +316,26 @@ section ul li img{
 	border: 1px solid black;
 	border-radius: 40px;
 }
+@media(max-width:768px){
+	.blog{
+		width: 100%;
+		padding: 64px 12px;
+	}
+	.blog ul li:not(:first-child){
+		display: none;
+	}
+	.arrow.left, .arrow.right{
+		top:auto;
+		left: auto;
+		right: 10px;
+		bottom: -40px;
+		transform: none;
+		margin: 0;
+	}	
+	.arrow.left{
+		right: 70px;
+	}
+}
 /* 職涯諮詢成功案例 */
 .case{
 	width: 70%;
@@ -294,20 +343,19 @@ section ul li img{
 }
 .case-consult{
 	display: flex;
-}
-.case-consult{
 	padding-bottom: 50px;
 }
 .case-consult-img{
 	border: 24px solid #EDEDED;
+	box-sizing: border-box;
 }
 .case-consult ul{
 	display: flex;
 	flex-direction: column;
 }
 .case-consult ul li{
+	box-sizing: border-box;
 	position: relative;
-	width: 446px;
 	padding: 80px 40px;
 	font-weight: bold;
 }
@@ -316,17 +364,46 @@ section ul li img{
 }
 .background-w{
 	background: #fff;
+	max-width: 526px;
 	margin-left: -190px;
 	margin-top: 25px;
 }
 .background-g{
 	background: #F5F5F5;
 	margin-left: 30px;
+	max-width: 526px;
 }
 .background-g a{
 	border: 1px solid #0027D5;
 	border-radius: 40px;
 	padding: 8px 16px;
+}
+.background-g p{
+	padding-bottom: 30px;
+}
+@media(max-width:768px){
+	.case{
+		width: 100%;
+		padding: 64px 12px;
+	}
+	.case-consult{
+		flex-direction: column;
+	}
+	.case-consult-img{
+		width: 100%;
+	}
+	.background-w{
+	background: #fff;
+	margin-top: 25px;
+	width: 100%;
+	margin: 0 auto;
+	}
+	.background-g{
+	background: #F5F5F5;
+	margin-left: 30px;
+	width: 100%;
+	margin: 0 auto;
+}
 }
 .podcast{
 	margin-bottom: 30px;
@@ -339,6 +416,7 @@ section ul li img{
 }
 .podcast ul li{
 	padding: 24px;
+	box-sizing: border-box;
 }
 .line2{
 	border-bottom: 1px solid #6C757D;
@@ -352,6 +430,16 @@ section ul li img{
 	padding: 8px 16px;
 	border: 1px solid #000;
 	border-radius: 40px;
+}
+@media(max-width:768px){
+	.podcast ul{
+		flex-direction: column;
+		width: 100%;
+	}
+	.podcast ul li{
+		width: 100%;
+		
+	}
 }
 .sub{
 	width: 100%;
@@ -369,6 +457,16 @@ section ul li img{
 	justify-content: center;
 	align-items: center;
 }
+.put{
+	padding-bottom: 30px;
+	
+}
+.put input{
+	max-width: 640px;
+	width: 100%;
+	padding: 8px 16px;
+	margin-bottom: 10px;
+}
 .sub-in{
 	border: 1px solid #0027D5;
 	border-radius: 40px;
@@ -377,6 +475,17 @@ section ul li img{
 .newsletter{
 	background: #fff;
 	padding: 80px;
+}
+@media(max-width:768px){
+	.sub ul{
+		flex-direction: column;
+	}
+	.sub ul li img{
+		width: 100%;
+	}
+	.sub-background{
+		width: 100%;
+	}
 }
 .connect{
 	width: 70%;
@@ -389,9 +498,28 @@ section ul li img{
 	display: flex;
 	justify-content: space-between;
 	border-bottom: 1px solid #000;
+	align-items: center;
 }
 .mail{
 	text-decoration: underline;
+	word-break: break-word;
+}
+.arrow-2{
+	width: 24px;
+	object-fit: contain;
+}
+.connect-link p{
+	display: flex;
+	align-items: center;
+}
+@media(max-width:768px){
+	.connect{
+		width: 100%;
+		padding: 10px;
+	}
+	.connect-link{
+		flex-wrap: wrap;
+	}
 }
 footer{
 	text-align: center;
